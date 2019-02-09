@@ -1,0 +1,32 @@
+﻿Doctor Appointment Structure
+
+    • create database DoctorAppointment;
+      Query OK, 1 row affected (0.00 sec)
+
+    •  use DoctorAppointment;
+
+    •    create table Department( department_id int(3) AUTO_INCREMENT NOT NULL,department_name varchar(50),primary key (department_id));
+      
+    •  create table Doctor(doctor_id int(11) Auto_INCREMENT NOT NULL,doctor_name varchar(50),department_id int(3),primary key(doctor_id),foreign key (department_id) references Department(department_id));
+      
+    •  create table Schedule(schedule_id int(11) NOT NULL,doctor_id int(11) NOT NULL,day Enum('Sunday','Monday','Tuesday','Wednesday','Thursday','Friday','Saturday') NOT NULL,start_at TIME,end_at TIME,primary key(schedule_id),foreign key (doctor_id) references Doctor (doctor_id));
+      
+    •  create table Patient(patient_id int(11) AUTO_INCREMENT NOT NULL,patient_name varchar(50),primary key (patient_id));
+      
+    • alter table Booking add status ENUM('Pending','Accepted') default 'Pending';
+      
+    • insert into Department(department_id,department_name) values (001,'Anesthiology');
+      
+    • insert into Department(department_name) values ('Internal Medicine');
+      
+    •  insert into Department(department_name) values ('Neurology');
+      
+    •  insert into Department(department_name) values ('Neurology');
+      
+    • insert into Doctor(doctor_name,department_id) values ('Lakshay',2);
+      
+    • insert into Doctor(doctor_id,doctor_name,department_id) values (001,'Naresh',1);
+      
+    •  insert into Doctor(doctor_name,department_id) values ('Pramod',3);
+      
+    • insert into Doctor(doctor_name,department_id) values ('Parul',4);
